@@ -9,10 +9,14 @@ import {
   MenuItem,
 } from "@mui/material";
 
-const Navbar = () => {
+type Props = {
+  openForm: () => void;
+};
+
+const Navbar = ({ openForm }: Props) => {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="static" sx={{ backgroundColor: "#353535" }}>
         <Container maxWidth="xl">
           <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
             <Box>
@@ -49,7 +53,12 @@ const Navbar = () => {
                 Contact
               </MenuItem>
             </Box>
-            <Button size="large" variant="contained" color="warning">
+            <Button
+              size="large"
+              variant="contained"
+              color="info"
+              onClick={openForm}
+            >
               Create Activity
             </Button>
           </Toolbar>
